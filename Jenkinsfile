@@ -48,7 +48,7 @@ pipeline {
                     values_path="values.yaml"
                     kubectl get ns reloader || kubectl create ns reloader
                     helm repo add reloader $helm_repo && \
-                    helm install reloader reloader/reloader --version 0.0.118 -f values.yaml --namespace reloader --wait
+                    helm install reloader reloader/reloader --version 0.0.118 -f $values_path --namespace reloader --wait
                   '''
                 }
                 catch (Exception errorlogs) {
